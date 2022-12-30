@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IOException {
+
         BigInteger var;
         try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in))) {
             var = new BigInteger(bufferedReader.readLine());
