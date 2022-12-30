@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws Exception {
+
         Scanner scanner = new Scanner(System.in);
         String[][] arr = new String[Integer.parseInt(scanner.nextLine())][2];
         for (int i = 0; i < arr.length; i++) {
