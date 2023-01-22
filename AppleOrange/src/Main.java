@@ -18,7 +18,12 @@ class Result {
      */
 
     public static void countApplesAndOranges(int s, int t, int a, int b, List<Integer> apples, List<Integer> oranges) {
-        // Write your code here
+
+        long applesF = apples.stream().filter(ap -> (ap + a) >= s && (ap + a) <= t).count();
+        long orangesF = oranges.stream().filter(or -> (or + b) >= s && (or + b) <= t).count();
+
+        System.out.println(applesF);
+        System.out.println(orangesF);
 
     }
 
