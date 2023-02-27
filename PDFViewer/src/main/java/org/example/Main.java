@@ -1,31 +1,21 @@
 package org.example;
 
 import java.io.*;
-import java.math.*;
-import java.security.*;
-import java.text.*;
 import java.util.*;
-import java.util.concurrent.*;
-import java.util.function.*;
-import java.util.regex.*;
 import java.util.stream.*;
-import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 
 class Result {
 
-    /*
-     * Complete the 'designerPdfViewer' function below.
-     *
-     * The function is expected to return an INTEGER.
-     * The function accepts following parameters:
-     *  1. INTEGER_ARRAY h
-     *  2. STRING word
-     */
-
     public static int designerPdfViewer(List<Integer> h, String word) {
         // Write your code here
-
+        int maxValue = 0;
+        for (int i = 0; i < word.length(); i++) {
+            if(h.get(word.charAt(i) - 97) > maxValue) {
+                maxValue = h.get(word.charAt(i) - 97);
+            }
+        }
+        return maxValue * word.length();
     }
 
 }
