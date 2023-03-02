@@ -8,13 +8,12 @@ import static java.util.stream.Collectors.toList;
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-
         List<List<Integer>> arr = new ArrayList<>();
-
         IntStream.range(0, 6).forEach(i -> {
             try {
                 arr.add(
-                        Stream.of(bufferedReader.readLine().replaceAll("\\s+$", "").split(" "))
+                        Stream.of(bufferedReader.readLine().replaceAll("\\s+$", "")
+                                .split(" "))
                                 .map(Integer::parseInt)
                                 .collect(toList())
                 );
@@ -22,23 +21,17 @@ public class Main {
                 throw new RuntimeException(ex);
             }
         });
-        int sum = 0, largest = Integer.MIN_VALUE;
-        for(int k = 0;k < 4; k++){
-            for(int j = 0;j < 4; j++){
-
-                sum = arr.get(k).get(j) +
-                        arr.get(k).get(j + 1) +
-                        arr.get(k).get(j + 2) +
-                        arr.get(k + 1).get(j + 1) +
-                        arr.get(k + 2).get(j) +
-                        arr.get(k + 2).get(j + 1) +
-                        arr.get(k + 2).get(j + 2);
-                if(sum > largest){
-                    largest = sum;
-                }
+         int result = 0;
+        for (int i = 0; i < 4; i++){
+            for (int j = 0; j < 4; j++){
+                int temp = arr.get(i).get(j) + arr.get(i).get(j + 1) + arr.get(i).get(j + 2) +
+                        arr.get(i + 1).get(j + 1) +
+                        arr.get(i + 2).get(j) + arr.get(i + 2).get(j + 1) + arr.get(i + 2).get(j + 2);
+                 result = Math.max(result, temp);
             }
         }
-        System.out.println(largest);
+        System.out.println(result);
+
         bufferedReader.close();
     }
 }
